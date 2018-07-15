@@ -28,7 +28,7 @@ class BeginMatchViewController: UIViewController {
 
     //MARK: storyboard actions
     @IBAction func rockButtonPressed(_ sender: Any) {
-        // Udacity requirement: All code: Instantiate the results view controller using the storyboard, and set the text of its label property. Connect the action on the rock button. - so this method no longer does anything
+        // Udacity requirement: Automatically Triggered Segue: Create an automatically triggered segue in storyboard, connected directly to the rock button. In this case, the label text should also be set in the prepareForSegue method. - so this method no longer does anything
     }
     
     @IBAction func paperButtonPressed(_ sender: Any) {
@@ -40,6 +40,11 @@ class BeginMatchViewController: UIViewController {
     @IBAction func scissorsButtonPressed(_ sender: Any) {
         outcomeMessage = determineWinner(playersThrow: .scissors, opponentsThrow: generateOpponentsPlay())
         print(outcomeMessage)
+        // Udacity requirement: All code: Instantiate the results view controller using the storyboard, and set the text of its label property. Connect the action on the rock button.
+        let controller: MatchResultsViewController
+        controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
+        controller.message = outcomeMessage
+        present(controller, animated: true, completion: nil)
     }
     
     func generateOpponentsPlay() -> GamePlay {

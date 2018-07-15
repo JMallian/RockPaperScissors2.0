@@ -56,7 +56,7 @@
         <!--Match Results View Controller-->
         <scene sceneID="wIL-Uf-5bw">
             <objects>
-                <viewController id="mgc-ny-hu9" customClass="MatchResultsViewController" customModule="RockPaperScissors2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MatchResults" id="mgc-ny-hu9" customClass="MatchResultsViewController" customModule="RockPaperScissors2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ut8-fN-FHQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
