@@ -29,7 +29,7 @@ class BeginMatchViewController: UIViewController {
     //MARK: storyboard actions
     @IBAction func rockButtonPressed(_ sender: Any) {
         outcomeMessage = determineWinner(playersThrow: .rock, opponentsThrow: generateOpponentsPlay())
-        print(outcomeMessage)
+        // Udacity requirement: All code: Instantiate the results view controller using the storyboard, and set the text of its label property. Connect the action on the rock button. - so this method no longer does naything
     }
     
     @IBAction func paperButtonPressed(_ sender: Any) {
