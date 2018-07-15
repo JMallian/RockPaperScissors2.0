@@ -32,18 +32,19 @@ class BeginMatchViewController: UIViewController {
     }
     
     @IBAction func paperButtonPressed(_ sender: Any) {
-        outcomeMessage = determineWinner(playersThrow: .paper, opponentsThrow: generateOpponentsPlay())
         // Udacity requirement: Perform Segue by Identifier: Create a named segue, and invoke the performSegueWithIdentifier method in the paper button action. In this case, the label text should be set in the prepareForSegue method.
         performSegue(withIdentifier: "ResultsVCFromPaper", sender: self)
     }
     
     @IBAction func scissorsButtonPressed(_ sender: Any) {
-        outcomeMessage = determineWinner(playersThrow: .scissors, opponentsThrow: generateOpponentsPlay())
-        print(outcomeMessage)
         // Udacity requirement: All code: Instantiate the results view controller using the storyboard, and set the text of its label property. Connect the action on the rock button.
+        let opponentsThrow = generateOpponentsPlay()
+        outcomeMessage = determineWinner(playersThrow: .scissors, opponentsThrow: opponentsThrow)
+        let imageString = determineImageString(playersThrow: .scissors, opponentsThrow: opponentsThrow)
         let controller: MatchResultsViewController
         controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
         controller.message = outcomeMessage
+        controller.imageString = imageString
         present(controller, animated: true, completion: nil)
     }
     
@@ -60,11 +61,26 @@ class BeginMatchViewController: UIViewController {
         
         switch playersThrow {
         case .paper:
-            return opponentsThrow == .scissors ? "computer won" : "you won"
+            return opponentsThrow == .scissors ? "Computer cuts your paper with scissors." : "You cover computer's rock."
         case .rock:
-            return opponentsThrow == .paper ? "computer won" : "you won"
+            return opponentsThrow == .paper ? "Computer covers your rock with paper." : "You crush your computer's scissors"
         case .scissors:
-            return opponentsThrow == .rock ? "computer won" : "you won"
+            return opponentsThrow == .rock ? "Computer crushes your scissors with rock." : "You cut computer's paper"
+        }
+    }
+    
+    func determineImageString(playersThrow: GamePlay, opponentsThrow: GamePlay) -> String {
+        if playersThrow == opponentsThrow {
+            return "itsATie"
+        }
+        
+        switch playersThrow {
+        case .paper:
+            return opponentsThrow == .scissors ? "ScissorsCutPaper" : "PaperCoversRock"
+        case .rock:
+            return opponentsThrow == .paper ? "PaperCoversRock" : "RockCrushesScissors"
+        case .scissors:
+            return opponentsThrow == .rock ? "RockCrushesScissors" : "ScissorsCutPaper"
         }
     }
 
@@ -73,11 +89,17 @@ class BeginMatchViewController: UIViewController {
         controller.message = "hello there!"
         
         if segue.identifier == "ResultsVCFromPaper" {
-            outcomeMessage = determineWinner(playersThrow: .paper, opponentsThrow: generateOpponentsPlay())
+            let opponentsThrow = generateOpponentsPlay()
+            outcomeMessage = determineWinner(playersThrow: .paper, opponentsThrow: opponentsThrow)
+            let imageString = determineImageString(playersThrow: .paper, opponentsThrow: opponentsThrow)
             controller.message = outcomeMessage
+            controller.imageString = imageString
         }else{ //rock button was pressed
-            outcomeMessage = determineWinner(playersThrow: .rock, opponentsThrow: generateOpponentsPlay())
+            let opponentsThrow = generateOpponentsPlay()
+            outcomeMessage = determineWinner(playersThrow: .rock, opponentsThrow: opponentsThrow)
+            let imageString = determineImageString(playersThrow: .rock, opponentsThrow: opponentsThrow)
             controller.message = outcomeMessage
+            controller.imageString = imageString 
         }
     }
 

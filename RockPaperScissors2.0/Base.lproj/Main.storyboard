@@ -18,26 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sII-5H-I0A">
-                                <rect key="frame" x="170" y="177" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sII-5H-I0A">
+                                <rect key="frame" x="151" y="160" width="75" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Rock"/>
+                                <state key="normal" image="rock"/>
                                 <connections>
                                     <segue destination="mgc-ny-hu9" kind="presentation" identifier="ResultsViewController" id="Pn1-tb-zVT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-oP-Wmf">
-                                <rect key="frame" x="168" y="251" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-oP-Wmf">
+                                <rect key="frame" x="151" y="234" width="75" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Paper"/>
+                                <state key="normal" image="paper"/>
                                 <connections>
                                     <action selector="paperButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hhx-vf-4Im"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVF-iV-pfE">
-                                <rect key="frame" x="158" y="318" width="58" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVF-iV-pfE">
+                                <rect key="frame" x="150" y="301" width="75" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scissors"/>
+                                <state key="normal" image="scissors"/>
                                 <connections>
                                     <action selector="scissorsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i8q-QU-eVF"/>
                                 </connections>
@@ -94,6 +94,11 @@
             <point key="canvasLocation" x="1476" y="43"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="paper" width="75" height="65"/>
+        <image name="rock" width="75" height="65"/>
+        <image name="scissors" width="75" height="65"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0aX-2Q-I7S"/>
     </inferredMetricsTieBreakers>

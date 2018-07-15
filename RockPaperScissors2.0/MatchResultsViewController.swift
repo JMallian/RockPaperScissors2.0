@@ -15,6 +15,7 @@ class MatchResultsViewController: UIViewController {
     @IBOutlet weak var displayResultsLabel: UILabel!
     @IBOutlet weak var displayResultsImage: UIImageView!
     var message: String?
+    var imageString: String?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -22,6 +23,12 @@ class MatchResultsViewController: UIViewController {
             displayResultsLabel.text = message
         }else{
             displayResultsLabel.text = "Hmm, view controller didn't get the message. A bit weird, that."
+        }
+        
+        if let imageString = self.imageString {
+            displayResultsImage.image = UIImage(named: imageString)
+        }else{
+            print("image string not passed to view controller")
         }
     }
     
