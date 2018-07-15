@@ -63,7 +63,11 @@ class BeginMatchViewController: UIViewController {
         }
     }
 
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! MatchResultsViewController
+        controller.message = "hello there!"
+        
+    }
 
 
 }
