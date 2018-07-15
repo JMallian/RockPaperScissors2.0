@@ -27,6 +27,7 @@ class MatchResultsViewController: UIViewController {
     
     //MARK: methods
     @IBAction func playAgainButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
