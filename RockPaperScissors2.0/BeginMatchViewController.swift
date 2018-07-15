@@ -9,24 +9,59 @@
 import UIKit
 
 class BeginMatchViewController: UIViewController {
+    enum GamePlay: Int {
+        case rock
+        case paper
+        case scissors
+    }
+    var outcomeMessage = ""
 
     //MARK: lifecycle functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
 
     //MARK: storyboard actions
     @IBAction func rockButtonPressed(_ sender: Any) {
+        outcomeMessage = determineWinner(playersThrow: .rock, opponentsThrow: generateOpponentsPlay())
+        print(outcomeMessage)
     }
     
     @IBAction func paperButtonPressed(_ sender: Any) {
+        outcomeMessage = determineWinner(playersThrow: .paper, opponentsThrow: generateOpponentsPlay())
+        print(outcomeMessage)
     }
     
     @IBAction func scissorsButtonPressed(_ sender: Any) {
+        outcomeMessage = determineWinner(playersThrow: .scissors, opponentsThrow: generateOpponentsPlay())
+        print(outcomeMessage)
     }
     
-
+    func generateOpponentsPlay() -> GamePlay {
+        let randomNumber = arc4random_uniform(3)
+        print("computer plays \(GamePlay(rawValue: Int(randomNumber))!)")
+        return GamePlay(rawValue: Int(randomNumber))! //I know it will exist
+    }
+    
+    func determineWinner(playersThrow: GamePlay, opponentsThrow: GamePlay) -> String {
+        if playersThrow == opponentsThrow {
+            return "tie game"
+        }
+        
+        switch playersThrow {
+        case .paper:
+            return opponentsThrow == .scissors ? "computer won" : "you won"
+        case .rock:
+            return opponentsThrow == .paper ? "computer won" : "you won"
+        case .scissors:
+            return opponentsThrow == .rock ? "computer won" : "you won"
+        }
+    }
 
 
 
