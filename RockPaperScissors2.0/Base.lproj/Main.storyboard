@@ -46,6 +46,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="mgc-ny-hu9" kind="presentation" identifier="ResultsVCFromPaper" id="0aX-2Q-I7S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -88,7 +91,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tlh-fx-bdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1428" y="134"/>
+            <point key="canvasLocation" x="1476" y="43"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="0aX-2Q-I7S"/>
+    </inferredMetricsTieBreakers>
 </document>
