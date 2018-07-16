@@ -28,6 +28,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "historyCell")
         cell?.textLabel?.text = "hi"
+        if let history = self.history {
+            cell?.textLabel?.text = history[indexPath.row]
+        }else{
+            cell?.textLabel?.text = "something went wrong in cellForRowAt method"
+        }
         return cell!
     }
     
