@@ -46,9 +46,6 @@ class BeginMatchViewController: UIViewController {
     
     @IBAction func scissorsButtonPressed(_ sender: Any) {
         // Udacity requirement: All code: Instantiate the results view controller using the storyboard, and set the text of its label property. Connect the action on the rock button.
-//        let opponentsThrow = generateOpponentsPlay()
-//        outcomeMessage = determineWinner(playersThrow: .scissors, opponentsThrow: opponentsThrow)
-//        let imageString = determineImageString(playersThrow: .scissors, opponentsThrow: opponentsThrow)
         generateGame(playersThrow: .scissors)
         let controller: MatchResultsViewController
         controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
@@ -102,18 +99,8 @@ class BeginMatchViewController: UIViewController {
         controller.message = "hello there!"
         
         if segue.identifier == "ResultsVCFromPaper" {
-//            let opponentsThrow = generateOpponentsPlay()
-//            outcomeMessage = determineWinner(playersThrow: .paper, opponentsThrow: opponentsThrow)
-//            let imageString = determineImageString(playersThrow: .paper, opponentsThrow: opponentsThrow)
-//            controller.message = outcomeMessage
-//            controller.imageString = imageString
             generateGame(playersThrow: .paper)
         }else{ //rock button was pressed
-//            let opponentsThrow = generateOpponentsPlay()
-//            outcomeMessage = determineWinner(playersThrow: .rock, opponentsThrow: opponentsThrow)
-//            let imageString = determineImageString(playersThrow: .rock, opponentsThrow: opponentsThrow)
-//            controller.message = outcomeMessage
-//            controller.imageString = imageString
             generateGame(playersThrow: .rock)
         }
         controller.message = outcomeMessage
