@@ -9,6 +9,7 @@
 import UIKit
 
 class BeginMatchViewController: UIViewController {
+    @IBOutlet weak var showHistoryButton: UIButton! //hide unless there's a history to show
     
     //todo: clean up code: abstract out repeating lines
     //add the list plays 
@@ -18,7 +19,10 @@ class BeginMatchViewController: UIViewController {
         case paper
         case scissors
     }
+    
+    //these will be used to set properties of MatchResultsViewController when instantiated
     var outcomeMessage = ""
+    var imageString = ""
 
     //MARK: lifecycle functions
     override func viewDidLoad() {
@@ -42,9 +46,10 @@ class BeginMatchViewController: UIViewController {
     
     @IBAction func scissorsButtonPressed(_ sender: Any) {
         // Udacity requirement: All code: Instantiate the results view controller using the storyboard, and set the text of its label property. Connect the action on the rock button.
-        let opponentsThrow = generateOpponentsPlay()
-        outcomeMessage = determineWinner(playersThrow: .scissors, opponentsThrow: opponentsThrow)
-        let imageString = determineImageString(playersThrow: .scissors, opponentsThrow: opponentsThrow)
+//        let opponentsThrow = generateOpponentsPlay()
+//        outcomeMessage = determineWinner(playersThrow: .scissors, opponentsThrow: opponentsThrow)
+//        let imageString = determineImageString(playersThrow: .scissors, opponentsThrow: opponentsThrow)
+        generateGame(playersThrow: .scissors)
         let controller: MatchResultsViewController
         controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
         controller.message = outcomeMessage
@@ -52,6 +57,10 @@ class BeginMatchViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    @IBAction func showHistoryButtonPressed(_ sender: Any) {
+    }
+    
+    //MARK: misc functions 
     func generateOpponentsPlay() -> GamePlay {
         let randomNumber = arc4random_uniform(3)
         print("computer plays \(GamePlay(rawValue: Int(randomNumber))!)")
@@ -93,18 +102,32 @@ class BeginMatchViewController: UIViewController {
         controller.message = "hello there!"
         
         if segue.identifier == "ResultsVCFromPaper" {
-            let opponentsThrow = generateOpponentsPlay()
-            outcomeMessage = determineWinner(playersThrow: .paper, opponentsThrow: opponentsThrow)
-            let imageString = determineImageString(playersThrow: .paper, opponentsThrow: opponentsThrow)
-            controller.message = outcomeMessage
-            controller.imageString = imageString
+//            let opponentsThrow = generateOpponentsPlay()
+//            outcomeMessage = determineWinner(playersThrow: .paper, opponentsThrow: opponentsThrow)
+//            let imageString = determineImageString(playersThrow: .paper, opponentsThrow: opponentsThrow)
+//            controller.message = outcomeMessage
+//            controller.imageString = imageString
+            generateGame(playersThrow: .paper)
         }else{ //rock button was pressed
-            let opponentsThrow = generateOpponentsPlay()
-            outcomeMessage = determineWinner(playersThrow: .rock, opponentsThrow: opponentsThrow)
-            let imageString = determineImageString(playersThrow: .rock, opponentsThrow: opponentsThrow)
-            controller.message = outcomeMessage
-            controller.imageString = imageString 
+//            let opponentsThrow = generateOpponentsPlay()
+//            outcomeMessage = determineWinner(playersThrow: .rock, opponentsThrow: opponentsThrow)
+//            let imageString = determineImageString(playersThrow: .rock, opponentsThrow: opponentsThrow)
+//            controller.message = outcomeMessage
+//            controller.imageString = imageString
+            generateGame(playersThrow: .rock)
         }
+        controller.message = outcomeMessage
+        controller.imageString = imageString
+    }
+    
+    func generateGame(playersThrow: GamePlay) {
+        let opponentsThrow = generateOpponentsPlay()
+        setPropertiesForMatchResultsViewController(playersThrow: playersThrow, opponentsThrow: opponentsThrow)
+    }
+    
+    func setPropertiesForMatchResultsViewController(playersThrow: GamePlay, opponentsThrow: GamePlay) {
+        outcomeMessage = determineWinner(playersThrow: playersThrow, opponentsThrow: opponentsThrow)
+        imageString = determineImageString(playersThrow: playersThrow, opponentsThrow: opponentsThrow)
     }
 
 
