@@ -10,7 +10,7 @@ import UIKit
 
 class BeginMatchViewController: UIViewController {
     @IBOutlet weak var showHistoryButton: UIButton! //hide unless there's a history to show
-    
+    var history = ["player won", "player won", "player lost", "player won"]
     //todo: clean up code: abstract out repeating lines
     //add the list plays 
     
@@ -57,6 +57,7 @@ class BeginMatchViewController: UIViewController {
     @IBAction func showHistoryButtonPressed(_ sender: Any) {
         let controller: HistoryViewController
         controller = storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
+        controller.history = self.history 
         present(controller, animated: true, completion: nil)
     }
     
