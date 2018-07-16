@@ -13,6 +13,7 @@
 		4C62887C20FAAE3000BD04ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C62887B20FAAE3000BD04ED /* Assets.xcassets */; };
 		4C62887F20FAAE3000BD04ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C62887D20FAAE3000BD04ED /* LaunchScreen.storyboard */; };
 		4C62888720FAAFC500BD04ED /* MatchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62888620FAAFC500BD04ED /* MatchResultsViewController.swift */; };
+		4C62888920FD56F900BD04ED /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62888820FD56F900BD04ED /* HistoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4C62887E20FAAE3000BD04ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C62888020FAAE3000BD04ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C62888620FAAFC500BD04ED /* MatchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchResultsViewController.swift; sourceTree = "<group>"; };
+		4C62888820FD56F900BD04ED /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				4C62887420FAAE2D00BD04ED /* AppDelegate.swift */,
 				4C62887620FAAE2D00BD04ED /* BeginMatchViewController.swift */,
+				4C62888820FD56F900BD04ED /* HistoryViewController.swift */,
 				4C62888620FAAFC500BD04ED /* MatchResultsViewController.swift */,
 				4C62887820FAAE2D00BD04ED /* Main.storyboard */,
 				4C62887B20FAAE3000BD04ED /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 				4C62887720FAAE2D00BD04ED /* BeginMatchViewController.swift in Sources */,
 				4C62887520FAAE2D00BD04ED /* AppDelegate.swift in Sources */,
 				4C62888720FAAFC500BD04ED /* MatchResultsViewController.swift in Sources */,
+				4C62888920FD56F900BD04ED /* HistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

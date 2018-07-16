@@ -9,6 +9,10 @@
 import UIKit
 
 class BeginMatchViewController: UIViewController {
+    
+    //todo: clean up code: abstract out repeating lines
+    //add the list plays 
+    
     enum GamePlay: Int {
         case rock
         case paper
