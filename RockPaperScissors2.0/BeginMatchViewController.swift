@@ -55,6 +55,9 @@ class BeginMatchViewController: UIViewController {
     }
     
     @IBAction func showHistoryButtonPressed(_ sender: Any) {
+        let controller: HistoryViewController
+        controller = storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
+        present(controller, animated: true, completion: nil)
     }
     
     //MARK: misc functions 
