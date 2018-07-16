@@ -11,8 +11,9 @@ import UIKit
 class BeginMatchViewController: UIViewController {
     @IBOutlet weak var showHistoryButton: UIButton! //hide unless there's a history to show
     var history = ["player won", "player won", "player lost", "player won"]
-    //todo: clean up code: abstract out repeating lines
-    //add the list plays 
+    var playerWon: Bool?
+    //todo: keep track of games for history list
+    //find way to get out of table view once presented 
     
     enum GamePlay: Int {
         case rock
