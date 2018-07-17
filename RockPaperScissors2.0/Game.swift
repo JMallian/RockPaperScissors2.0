@@ -20,7 +20,7 @@ struct Game {
         case tie
     }
     let playersThrow: GamePlay
-    let computersThrow: GamePlay
+    let computersThrow: GamePlay //this could be computed too?
     var playerWon: Winner {
         get {
             return getWinner()
