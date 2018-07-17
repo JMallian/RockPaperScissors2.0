@@ -13,13 +13,13 @@ class BeginMatchViewController: UIViewController {
     var history = ["player won", "player won", "player lost", "player won"]
     var playerWon: Bool?
     //todo: keep track of games for history list
-    //find way to get out of table view once presented 
+    //find way to get out of table view once presented
     
-    enum GamePlay: Int {
-        case rock
-        case paper
-        case scissors
-    }
+//    enum GamePlay: Int {
+//        case rock
+//        case paper
+//        case scissors
+//    }
     
     //these will be used to set properties of MatchResultsViewController when instantiated
     var outcomeMessage = ""
@@ -69,20 +69,20 @@ class BeginMatchViewController: UIViewController {
         return GamePlay(rawValue: Int(randomNumber))! //I know it will exist
     }
     
-    func determineWinner(playersThrow: GamePlay, opponentsThrow: GamePlay) -> String {
-        if playersThrow == opponentsThrow {
-            return "tie game"
-        }
-        
-        switch playersThrow {
-        case .paper:
-            return opponentsThrow == .scissors ? "Computer cuts your paper with scissors." : "You cover computer's rock."
-        case .rock:
-            return opponentsThrow == .paper ? "Computer covers your rock with paper." : "You crush your computer's scissors"
-        case .scissors:
-            return opponentsThrow == .rock ? "Computer crushes your scissors with rock." : "You cut computer's paper"
-        }
-    }
+//    func determineWinner(playersThrow: GamePlay, opponentsThrow: GamePlay) -> String {
+//        if playersThrow == opponentsThrow {
+//            return "tie game"
+//        }
+//        
+//        switch playersThrow {
+//        case .paper:
+//            return opponentsThrow == .scissors ? "Computer cuts your paper with scissors." : "You cover computer's rock."
+//        case .rock:
+//            return opponentsThrow == .paper ? "Computer covers your rock with paper." : "You crush your computer's scissors"
+//        case .scissors:
+//            return opponentsThrow == .rock ? "Computer crushes your scissors with rock." : "You cut computer's paper"
+//        }
+//    }
     
     func determineImageString(playersThrow: GamePlay, opponentsThrow: GamePlay) -> String {
         if playersThrow == opponentsThrow {
