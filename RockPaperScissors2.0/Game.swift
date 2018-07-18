@@ -20,7 +20,11 @@ struct Game {
         case tie
     }
     let playersThrow: GamePlay
-    let computersThrow: GamePlay //this could be computed too?
+    var computersThrow: GamePlay {
+        let randomNumber = arc4random_uniform(3)
+        print("computer plays \(GamePlay(rawValue: Int(randomNumber))!)")
+        return GamePlay(rawValue: Int(randomNumber))! //I know it will exist
+    }
     var playerWon: Winner {
         get {
             return getWinner()
@@ -37,9 +41,8 @@ struct Game {
         }
     }
     
-    init(playersThrow: GamePlay, computersThrow: GamePlay) {
+    init(playersThrow: GamePlay) {
         self.playersThrow = playersThrow
-        self.computersThrow = computersThrow
     }
     
     func getWinner() -> String {
