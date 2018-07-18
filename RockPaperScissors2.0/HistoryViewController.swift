@@ -33,6 +33,18 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         }else{
             cell?.textLabel?.text = "something went wrong in cellForRowAt method"
         }
+        
+        //change background color depending on if you won or lost game
+        if history != nil {
+            if history![indexPath.row].getWinner() == .player {
+                cell?.backgroundColor = .green
+            }else if history![indexPath.row].getWinner() == .computer {
+                cell?.backgroundColor = .red
+            }else{ //tie game
+                cell?.backgroundColor = .gray
+            }
+        }
+        
         return cell!
     }
     

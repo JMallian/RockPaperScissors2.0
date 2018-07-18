@@ -44,10 +44,6 @@ class Game {
         self.playersThrow = playersThrow
     }
     
-    func getWinner() -> String {
-        return "Hi"
-    }
-    
     func getOutcomeString() -> String {
         if self.playersThrow == self.computersThrow {
             return "tie game"
