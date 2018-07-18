@@ -16,53 +16,35 @@ class BeginMatchViewController: UIViewController {
     //find way to get out of table view once presented
     
 
-    
-    //these will be used to set properties of MatchResultsViewController when instantiated
-    var outcomeMessage = ""
-    var imageString = ""
-
-    //MARK: lifecycle functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-
     //MARK: storyboard actions
     @IBAction func rockButtonPressed(_ sender: Any) {
         let game = Game(playersThrow: .rock)
-        let controller: MatchResultsViewController
-        controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
-        controller.message = game.outcomeString
-        controller.imageString = game.imageString
-        present(controller, animated: true, completion: nil)
+        prepareHistoryViewController(game: game)
     }
     
     @IBAction func paperButtonPressed(_ sender: Any) {
         let game = Game(playersThrow: .paper)
-        let controller: MatchResultsViewController
-        controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
-        controller.message = game.outcomeString
-        controller.imageString = game.imageString
-        present(controller, animated: true, completion: nil)
+        prepareHistoryViewController(game: game)
     }
     
     @IBAction func scissorsButtonPressed(_ sender: Any) {
         let game = Game(playersThrow: .scissors)
-        let controller: MatchResultsViewController
-        controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
-        controller.message = game.outcomeString
-        controller.imageString = game.imageString
-        present(controller, animated: true, completion: nil)
+        prepareHistoryViewController(game: game)
     }
     
     @IBAction func showHistoryButtonPressed(_ sender: Any) {
         let controller: HistoryViewController
         controller = storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
         controller.history = self.history 
+        present(controller, animated: true, completion: nil)
+    }
+    
+    //MARK: helper function
+    func prepareHistoryViewController(game: Game) {
+        let controller: MatchResultsViewController
+        controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
+        controller.message = game.outcomeString
+        controller.imageString = game.imageString
         present(controller, animated: true, completion: nil)
     }
 
