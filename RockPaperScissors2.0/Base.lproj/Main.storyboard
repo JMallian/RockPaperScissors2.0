@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="65"/>
                                         <state key="normal" image="rock"/>
                                         <connections>
-                                            <segue destination="mgc-ny-hu9" kind="presentation" identifier="ResultsViewController" id="Pn1-tb-zVT"/>
+                                            <action selector="rockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b2H-Uv-47g"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1w8-oP-Wmf">
@@ -66,7 +66,6 @@
                     </view>
                     <connections>
                         <outlet property="showHistoryButton" destination="yxb-yg-5Sw" id="OQG-Ug-bEN"/>
-                        <segue destination="mgc-ny-hu9" kind="presentation" identifier="ResultsVCFromPaper" id="0aX-2Q-I7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -173,7 +172,4 @@
         <image name="rock" width="75" height="65"/>
         <image name="scissors" width="75" height="65"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="0aX-2Q-I7S"/>
-    </inferredMetricsTieBreakers>
 </document>

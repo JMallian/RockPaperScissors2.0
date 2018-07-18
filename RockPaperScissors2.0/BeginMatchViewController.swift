@@ -37,12 +37,21 @@ class BeginMatchViewController: UIViewController {
 
     //MARK: storyboard actions
     @IBAction func rockButtonPressed(_ sender: Any) {
-        // Udacity requirement: Automatically Triggered Segue: Create an automatically triggered segue in storyboard, connected directly to the rock button. In this case, the label text should also be set in the prepareForSegue method. - so this method no longer does anything
+        let game = Game(playersThrow: .rock)
+        let controller: MatchResultsViewController
+        controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
+        controller.message = game.outcomeString
+        controller.imageString = game.imageString
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func paperButtonPressed(_ sender: Any) {
-        // Udacity requirement: Perform Segue by Identifier: Create a named segue, and invoke the performSegueWithIdentifier method in the paper button action. In this case, the label text should be set in the prepareForSegue method.
-        performSegue(withIdentifier: "ResultsVCFromPaper", sender: self)
+        let game = Game(playersThrow: .paper)
+        let controller: MatchResultsViewController
+        controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
+        controller.message = game.outcomeString
+        controller.imageString = game.imageString
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func scissorsButtonPressed(_ sender: Any) {
