@@ -10,7 +10,7 @@ import UIKit
 
 class HistoryViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var historyTableView: UITableView!
-    var history: [String]?
+    var history: [Game]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource {
         let cell = historyTableView.dequeueReusableCell(withIdentifier: "historyCell")
         cell?.textLabel?.text = "hi"
         if let history = self.history {
-            cell?.textLabel?.text = history[indexPath.row]
+            cell?.textLabel?.text = history[indexPath.row].outcomeString
         }else{
             cell?.textLabel?.text = "something went wrong in cellForRowAt method"
         }

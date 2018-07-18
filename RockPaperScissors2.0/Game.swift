@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Game {
+class Game {
     enum GamePlay: Int {
         case rock
         case paper
@@ -19,14 +19,13 @@ struct Game {
         case computer
         case tie
     }
+    
     let playersThrow: GamePlay
-    var computersThrow: GamePlay {
-        let randomNumber = arc4random_uniform(3)
-        print("computer plays \(GamePlay(rawValue: Int(randomNumber))!)")
-        return GamePlay(rawValue: Int(randomNumber))! //I know it will exist
-    }
+    var computersThrow = GamePlay(rawValue: Int(arc4random_uniform(3)))
+
     var playerWon: Winner {
         get {
+            print("player won created")
             return getWinner()
         }
     }
@@ -92,5 +91,11 @@ struct Game {
         case .scissors:
             return computersThrow == .rock ? "RockCrushesScissors" : "ScissorsCutPaper"
         }
+    }
+    
+    func getComputersThrow() -> GamePlay {
+        let randomNumber = arc4random_uniform(3)
+        return GamePlay(rawValue: Int(randomNumber))! //I know it will exist
+
     }
 }

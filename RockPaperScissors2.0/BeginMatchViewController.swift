@@ -10,9 +10,9 @@ import UIKit
 
 class BeginMatchViewController: UIViewController {
     @IBOutlet weak var showHistoryButton: UIButton! //hide unless there's a history to show
-    var history = ["player won", "player won", "player lost", "player won"]
-    var playerWon: Bool?
-    //todo: keep track of games for history list
+    var history: [Game] = []
+
+    //todo: change cells background based off win or lose
     //find way to get out of table view once presented
     
 
@@ -45,6 +45,7 @@ class BeginMatchViewController: UIViewController {
         controller = storyboard?.instantiateViewController(withIdentifier: "MatchResults") as! MatchResultsViewController
         controller.message = game.outcomeString
         controller.imageString = game.imageString
+        history.append(game)
         present(controller, animated: true, completion: nil)
     }
 
