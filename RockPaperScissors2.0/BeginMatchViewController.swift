@@ -46,7 +46,12 @@ class BeginMatchViewController: UIViewController {
         controller.message = game.outcomeString
         controller.imageString = game.imageString
         history.append(game)
-        present(controller, animated: true, completion: nil)
+        //present(controller, animated: true, completion: nil)
+        if let navigationController = navigationController {
+            navigationController.pushViewController(controller, animated: true)
+        }else{
+            print("um, that didn't work")
+        }
     }
 
 }
