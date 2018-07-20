@@ -36,7 +36,10 @@ class BeginMatchViewController: UIViewController {
         let controller: HistoryViewController
         controller = storyboard?.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
         controller.history = self.history 
-        present(controller, animated: true, completion: nil)
+        //present(controller, animated: true, completion: nil)
+        if let navigationController = navigationController {
+            navigationController.pushViewController(controller, animated: true)
+        }
     }
     
     //MARK: helper function
@@ -50,7 +53,7 @@ class BeginMatchViewController: UIViewController {
         if let navigationController = navigationController {
             navigationController.pushViewController(controller, animated: true)
         }else{
-            print("um, that didn't work")
+            print("inside preparedHistoryViewController: navigationController is mia")
         }
     }
 
