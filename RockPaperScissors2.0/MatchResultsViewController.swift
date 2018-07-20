@@ -34,7 +34,10 @@ class MatchResultsViewController: UIViewController {
     
     //MARK: methods
     @IBAction func playAgainButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)        
+        if let navigationController = navigationController {
+            navigationController.popViewController(animated: true)
+        }
     }
     
 }
